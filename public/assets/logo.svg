@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 234.94 113.37">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#radial-gradient);
+      }
+
+      .cls-2 {
+        fill: #adf844;
+      }
+
+      .cls-3 {
+        fill: #d81b60;
+        font-family: BBAnonymPro-Bold, 'BB Anonym Pro';
+        font-size: 90.19px;
+        font-weight: 700;
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="205.46" cy="49.49" fx="205.46" fy="49.49" r="30.19" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5732f1"/>
+      <stop offset=".32" stop-color="#8929b8"/>
+      <stop offset=".63" stop-color="#b32188"/>
+      <stop offset=".87" stop-color="#ce1c6b"/>
+      <stop offset="1" stop-color="#d81b60"/>
+    </radialGradient>
+  </defs>
+  <text class="cls-3" transform="translate(0 77.2)"><tspan x="0" y="0">Aivi</tspan></text>
+  <g>
+    <path class="cls-1" d="M178.69,68.19c6.59,10.35,18.74,14.17,32.4,11.19,11.49-2.5,20.74-11.83,23.16-23.34,4.19-19.9-11.3-37.44-30.47-37.44-10.84,0-19.62,3.5-25.1,12-1.6,2.48-2.71,7.55-2.71,10.5v16.65c0,2.86,1.18,8.02,2.71,10.43Z"/>
+    <path class="cls-2" d="M216.75,51.49l-18.57,11.54c-2.01,1.4-4.8.33-4.8-2.06v-23.12c0-2.38,2.18-3.24,4.56-1.89l18.81,11.74c1.04,1.04,1.04,2.74,0,3.78Z"/>
+  </g>
+</svg>
