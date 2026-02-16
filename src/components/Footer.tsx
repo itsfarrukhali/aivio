@@ -23,7 +23,13 @@ export default function Footer() {
         >
           {/* Logo */}
           <div className="w-full sm:w-auto mb-2 sm:mb-0">
-            <NavLink to="/" className="inline-flex items-center gap-2">
+            <NavLink
+              to="/"
+              className="inline-flex items-center gap-2"
+              onClick={() =>
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+              }
+            >
               <img
                 className="h-7 sm:h-8 w-auto"
                 src="/assets/logo.png"

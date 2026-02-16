@@ -10,7 +10,7 @@ export default function FeaturesSection() {
   return (
     <div
       id="features"
-      className="px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 py-12 sm:py-16 md:py-20"
+      className="px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 py-4 sm:py-6 md:py-8"
     >
       <SectionTitle
         text1="Features"

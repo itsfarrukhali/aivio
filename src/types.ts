@@ -83,7 +83,8 @@ export interface Project {
   productName: string;
   productDescription?: string;
   userPrompt?: string;
-  aspectRatio: number;
+  aspectRatio: number | string;
+  targetLenght?: string;
   generatedImage?: string;
   generatedVideo?: string;
   isGenerating: boolean;
