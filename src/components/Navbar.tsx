@@ -1,11 +1,22 @@
-import { MenuIcon, XIcon } from "lucide-react";
+import {
+  DollarSignIcon,
+  FolderEditIcon,
+  GalleryHorizontalEnd,
+  MenuIcon,
+  SparkleIcon,
+  XIcon,
+} from "lucide-react";
 import { useState } from "react";
 import { motion } from "motion/react";
 import { navlinks } from "../data/navlinks";
 import type { INavLink } from "../types";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  const { user } = useUser();
+  const { openSignIn } = useClerk();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -40,16 +51,57 @@ export default function Navbar() {
           ))}
         </div>
 
-        <button className="hidden md:block px-5 lg:px-6 py-2.5 bg-pink-600 hover:bg-pink-700 active:scale-95 transition-all rounded-full text-sm">
-          Sign In
-        </button>
-        <button
-          onClick={() => setIsOpen(true)}
-          className="md:hidden p-2 hover:bg-pink-950/50 rounded-lg transition"
-          aria-label="Open menu"
-        >
-          <MenuIcon size={24} className="active:scale-90 transition" />
-        </button>
+        {!user ? (
+          <button
+            onClick={() => openSignIn()}
+            className="hidden md:block px-5 lg:px-6 py-2.5 bg-pink-600 hover:bg-pink-700 active:scale-95 transition-all rounded-full text-sm"
+          >
+            Sign In
+          </button>
+        ) : (
+          <div className="flex gap-2 items-center">
+            <button
+              onClick={() => navigate("/plans")}
+              className="border-none text-gray-300 sm:py-1.5"
+            >
+              Credits:
+            </button>
+            <UserButton>
+              <UserButton.MenuItems>
+                <UserButton.Action
+                  label="Generate"
+                  labelIcon={<SparkleIcon size={14} />}
+                  onClick={() => navigate("/generate")}
+                />
+                <UserButton.Action
+                  label="My Generations"
+                  labelIcon={<FolderEditIcon size={14} />}
+                  onClick={() => navigate("/my-generations")}
+                />
+                <UserButton.Action
+                  label="Community"
+                  labelIcon={<GalleryHorizontalEnd size={14} />}
+                  onClick={() => navigate("/community")}
+                />
+                <UserButton.Action
+                  label="Plans"
+                  labelIcon={<DollarSignIcon size={14} />}
+                  onClick={() => navigate("/plans")}
+                />
+              </UserButton.MenuItems>
+            </UserButton>
+          </div>
+        )}
+
+        {!user && (
+          <button
+            onClick={() => setIsOpen(true)}
+            className="md:hidden p-2 hover:bg-pink-950/50 rounded-lg transition"
+            aria-label="Open menu"
+          >
+            <MenuIcon size={24} className="active:scale-90 transition" />
+          </button>
+        )}
       </motion.nav>
 
       <div
@@ -78,7 +130,10 @@ export default function Navbar() {
           animate={isOpen ? { x: 0, opacity: 1 } : { x: 50, opacity: 0 }}
           transition={{ delay: navlinks.length * 0.1, duration: 0.3 }}
           className="px-8 py-2.5 bg-pink-600 hover:bg-pink-700 transition text-white rounded-full"
-          onClick={() => setIsOpen(false)}
+          onClick={() => {
+            setIsOpen(false);
+            openSignIn();
+          }}
         >
           Sign In
         </motion.button>

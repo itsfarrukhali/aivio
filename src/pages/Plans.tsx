@@ -9,7 +9,7 @@ const Plans = () => {
       <div className="absolute top-20 -z-10 left-1/4 size-96 bg-pink-600 blur-[300px] opacity-30"></div>
       <div className="absolute bottom-40 -z-10 right-1/3 size-96 bg-purple-500 blur-[350px] opacity-20"></div>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-full mx-auto">
         {/* Header */}
         <motion.div
           className="text-center mb-8"
